@@ -115,27 +115,7 @@
             observer.observe(skillsSection);
         }
         
-        // CV Download function with loader
-        function downloadCV() {
-            const btn = document.querySelector('.download-btn .btn');
-            const loader = document.getElementById('loader');
-            
-            btn.disabled = true;
-            loader.style.display = 'block';
-            btn.querySelector('span').textContent = 'Downloading...';
-            
-            // Simulate download (replace with actual download logic)
-            setTimeout(() => {
-                loader.style.display = 'none';
-                btn.querySelector('span').textContent = 'Download Complete!';
-                
-                // Reset button after 2 seconds
-                setTimeout(() => {
-                    btn.querySelector('span').textContent = 'Download CV';
-                    btn.disabled = false;
-                }, 2000);
-            }, 3000);
-        }
+      
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
