@@ -1,9 +1,22 @@
 'use strict'
 async function downloadCV() {
-    const loader = document.getElementById('loader');
-    loader.style.display = 'block'; 
+     const btn = document.querySelector('.download-btn .btn');
+            const loader = document.getElementById('loader');
+            
+            btn.disabled = true;
+            loader.style.display = 'block';
+            btn.querySelector('span').textContent = 'Downloading...';
     
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(() => {
+                loader.style.display = 'none';
+                btn.querySelector('span').textContent = 'Download Complete!';
+                
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                    btn.querySelector('span').textContent = 'Download CV';
+                    btn.disabled = false;
+                }, 2000);
+            }, 3000););
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'programmer-image/ctn/Akam Godlove Tabit.pdf', true);
